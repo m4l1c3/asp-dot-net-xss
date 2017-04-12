@@ -13,17 +13,13 @@ namespace AspDotNetXss.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult XssSafe(string payload)
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult NotXssSafe(string payload)
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
