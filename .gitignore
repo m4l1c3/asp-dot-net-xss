@@ -1,0 +1,7 @@
+.vs/config/applicationhost.config
+*.suo
+*.dll
+obj
+bin
+packages
+AspDotNetXss.v3.ncrunchsolution.user
