@@ -1,0 +1,21 @@
+@using asp_dot_net_xss.Models;
+
+@model XssResponseModel;
+
+@section Scripts {
+    <script type="text/javascript">
+        var test = '@Model.Response';
+    </script>
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <p>
+            Yay your input passed validation it's value is: 
+        </p>
+        <p>
+            @Model.Response
+        </p>
+        <a href="@Url.Action("Index", "Home")">Back</a>
+    </div>
+</div>

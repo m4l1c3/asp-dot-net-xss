@@ -1,0 +1,19 @@
+@using asp_dot_net_xss.Models;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model UnsafeXssRequestModel;
+
+<div class="row">
+    <div class="col-sm-12">
+        @using(Html.BeginForm("IndexVulnerable", "Home", FormMethod.Post, new { enctype = "multipart/form-data"}))
+        {
+            @Html.LabelFor(x => x.Input)<br />
+            <span asp-validation-for="Input" class="text-danger"></span><br/>
+            @Html.TextBoxFor(x => x.Input)<br/>
+            <input type="submit" value="Submit" />
+        }
+    </div>
+</div>
