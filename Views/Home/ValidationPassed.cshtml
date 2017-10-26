@@ -1,10 +1,13 @@
 @using asp_dot_net_xss.Models;
+@using System.Text.Encodings.Web;
+@inject JavaScriptEncoder encoder;
+@inject HtmlEncoder htmlEncoder;
 
 @model XssResponseModel;
 
 @section Scripts {
     <script type="text/javascript">
-        var test = '@Model.Response';
+        var test = '@encoder.Encode(Model.Response)';
     </script>
 }
 
@@ -14,7 +17,7 @@
             Yay your input passed validation it's value is: 
         </p>
         <p>
-            @Model.Response
+            @htmlEncoder.Encode(Model.Response)
         </p>
         <a href="@Url.Action("Index", "Home")">Back</a>
     </div>
