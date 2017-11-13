@@ -1,7 +1,7 @@
 language: csharp  
 sudo: required  
 dist: trusty  
-mono: none
+mono: 4.0.5
 dotnet: 2.0.0
 env:  
   - CLI_VERSION=latest
