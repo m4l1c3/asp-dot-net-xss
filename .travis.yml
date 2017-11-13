@@ -7,13 +7,12 @@ env:
   - CLI_VERSION=latest
 addons:  
   apt:
+    sources: 
+    - sourceline: 'deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main'
+      key_url: 'https://packages.microsoft.com/keys/microsoft.asc'
     packages:
-    - gettext
-    - libcurl4-openssl-dev
-    - libicu-dev
-    - libssl-dev
-    - libunwind8
-    - zlib1g
+    - dotnet-hostfxr-1.0.1
+    - dotnet-sharedframework-microsoft.netcore.app-1.0.5
 os:  
   - linux
 install:  
@@ -21,5 +20,4 @@ install:
   - curl -sSL https://raw.githubusercontent.com/dotnet/cli/rel/1.0.0/scripts/obtain/dotnet-install.sh | bash /dev/stdin --version "$CLI_VERSION" --install-dir "$DOTNET_INSTALL_DIR"
   - export PATH="$DOTNET_INSTALL_DIR:$PATH"  
 script:
-  - dotnet restore
   - dotnet build ./asp-dot-net-xss.csproj
